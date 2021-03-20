@@ -1,0 +1,52 @@
+﻿@page "/personas/add"
+@using System.Net.Http
+@inject NavigationManager nav
+@inject HttpClient Http
+
+<EditForm Model="@persona" OnValidSubmit="@Submit">
+    <DataAnnotationsValidator />
+    <div class="d-block">
+        <h2 class="mt-0">Añadir Persona</h2>
+    </div>
+    <div class="d-block mt-4">
+        <MatTextField Label="Nombre" @bind-Value="persona.Nombre" Class="w-100" />
+        @*<ValidationMessage For="@(() => persona.Nombre)" />*@
+    </div>
+    <div class="d-block mt-2">
+        <MatTextField Label="Apellidos" @bind-Value="persona.Apellidos" Class="w-100" />
+        @*<ValidationMessage For="@(() => persona.Apellidos)" />*@
+    </div>
+    <div class="d-block mt-2">
+        <MatTextField Label="DNI" @bind-Value="persona.DNI" Class="w-100" />
+        @*<ValidationMessage For="@(() => persona.DNI)" />*@
+    </div>
+    <div class="d-block mt-2">
+        <MatTextField Label="Sexo" @bind-Value="persona.Sexo" Class="w-100" />
+        @*<ValidationMessage For="@(() => persona.Sexo)" />*@
+    </div>
+    <div class="d-block mt-2">
+        <MatTextField Label="Direccion" @bind-Value="persona.Direccion" Class="w-100" />
+    </div>
+    <div class="d-block mt-2">
+        <MatTextField Label="CodigoPostal" @bind-Value="persona.CodigoPostal" Class="w-100" />
+    </div>
+    <div class="d-block mt-2">
+        <MatTextField Label="FechaNacimiento" @bind-Value="persona.FechaNacimiento" Class="w-100" />
+        @*<ValidationMessage For="@(() => persona.FechaNacimiento)" />*@
+    </div>
+
+
+    <div class="d-flex justify-content-center align-items-center" style="height:30px;">
+        <MatProgressCircle Indeterminate="@loading" Size="MatProgressCircleSize.Medium" />
+        <div class="validation-message">@error</div>
+    </div>
+    <div class="d-block mt-1">
+        <MatButton Type="submit" Raised="true" Class="btn-block" Disabled="loading">
+            <span>Añadir</span>
+        </MatButton>
+    </div>
+</EditForm>
+
+@code {
+
+}
